@@ -64,7 +64,7 @@
             "sub_types":
             {
                 "Stage3D": ["AIRStage3D"],
-                "ActionScript": ["ActionScript"],
+                "ActionScript": ["\\bActionScript\\b"],
                 "FlashAir": ["flash air", "flash_air", "flashair"]
             }
         },
@@ -85,8 +85,15 @@
 
         {
             "name": "egret",
-            "file_name_keywords": [],
+            "file_name_keywords": ["egret.*\\.js"],
             "file_content_keywords": ["egretframeworknative", "EGTTexture"],
+            "sub_types": {}
+        },
+
+        {
+            "name": "laya",
+            "file_name_keywords": ["laya.*\\.js"],
+            "file_content_keywords": [],
             "sub_types": {}
         }
     ]
