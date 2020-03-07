@@ -207,7 +207,8 @@ class GameEngineDetector:
                     if is_dir:
                         return False
 
-                    scanner.check_file_name(path)
+                    if scanner.check_file_name(path):
+                        return True
 
                     if self._need_to_check_file_content(path):
                         if scanner.check_file_content(path):

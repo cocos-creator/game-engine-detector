@@ -38,16 +38,25 @@
     "engines":
     [
         {
-            "name": "cocos2d",
-            "file_name_keywords": ["cocos2d"],
-            "file_content_keywords": ["CCFileUtils", "cocos2dVersion", "cocos2d"],
-            "sub_types":
-            {
-                "lua": ["CCLuaEngine", "LuaEngine"],
-                "js": ["ScriptingCore"],
-                "CocosCreator": ["Scale9SpriteV2"]
-            },
-            "engine_version_keyword": "\\0cocos2d-x[\\s-](\\d+\\..*?)\\0"
+            "name": "CocosCreator",
+            "file_name_keywords": ["cocos2d-jsb.*\\.jsc?$", "jsb_polyfill.*\\.jsc?$"],
+            "file_content_keywords": [],
+            "sub_types":{}
+        },
+
+        {
+            "name": "Cocos2d-x",
+            "file_name_keywords": [],
+            "file_content_keywords": ["CCRender"],
+            "sub_types":{},
+            "engine_version_keyword": "cocos2d-x[\\s-](\\d+\\..*?)\\0"
+        },
+
+        {
+            "name": "+Cocos",
+            "file_name_keywords": [],
+            "file_content_keywords": ["CCFileUtils", "CCLayer", "cocos2d", "CCLuaEngine", "LuaEngine", "ScriptingCore", "Scale9SpriteV2"],
+            "sub_types": {}
         },
 
         {
@@ -85,14 +94,35 @@
 
         {
             "name": "egret",
-            "file_name_keywords": ["egret.*\\.js"],
+            "file_name_keywords": ["egret.*\\.js$"],
             "file_content_keywords": ["egretframeworknative", "EGTTexture"],
             "sub_types": {}
         },
 
         {
             "name": "laya",
-            "file_name_keywords": ["laya.*\\.js"],
+            "file_name_keywords": ["laya.*\\.js$"],
+            "file_content_keywords": [],
+            "sub_types": {}
+        },
+
+        {
+            "name": "defold",
+            "file_name_keywords": [".*\\.ffa$", ".*\\.ffm$", ".*\\.ffsb$"],
+            "file_content_keywords": [],
+            "sub_types": {}
+        },
+
+        {
+            "name": "murl engine",
+            "file_name_keywords": [".*\\.murlpkg$"],
+            "file_content_keywords": [],
+            "sub_types": {}
+        },
+
+        {
+            "name": "godot",
+            "file_name_keywords": ["libgodot_android\\.so$"],
             "file_content_keywords": [],
             "sub_types": {}
         }
