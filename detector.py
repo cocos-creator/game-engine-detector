@@ -66,10 +66,10 @@ class PackageScanner:
         return ret
 
 
-    def check_file_name(self, path):
+    def check_file_name(self, path, enginesInPriority):
         found = False
         path = common.to_unix_path(path)
-        for engine in self.engines:
+        for engine in enginesInPriority:
             #print("==> Checking whether the game is made by " + engine["name"])
 
             for keyword in engine["file_name_keywords"]:
@@ -83,12 +83,12 @@ class PackageScanner:
 
         return found
 
-    def check_file_content(self, path, chunk_size=81920):
+    def check_file_content(self, path, enginesInPriority, chunk_size=81920):
         #print("==> Checking executable file ( %s )" % path)
 
         found = False
         found_engine = None
-        for engine in self.engines:
+        for engine in enginesInPriority:
             #print("==> Checking whether the game is made by " + engine["name"])
 
             with open(path, "rb") as f:
@@ -204,20 +204,21 @@ class GameEngineDetector:
 
         try:
             if 0 == scanner.unzip_package(new_pkg_path, new_out_dir, self.opts["7z_path"]):
-                def callback(path, is_dir):
-                    if is_dir:
-                        return False
+                for enginesInPriority in scanner.engines:
+                    def callback(path, is_dir):
+                        if is_dir:
+                            return False
 
-                    if scanner.check_file_name(path):
-                        return True
-
-                    if self._need_to_check_file_content(path):
-                        if scanner.check_file_content(path):
+                        if scanner.check_file_name(path, enginesInPriority):
                             return True
 
-                    return False
+                        if self._need_to_check_file_content(path):
+                            if scanner.check_file_content(path, enginesInPriority):
+                                return True
 
-                common.deep_iterate_dir(new_out_dir, callback)
+                        return False
+
+                    common.deep_iterate_dir(new_out_dir, callback)
 
             self.all_results.append(scanner.result)
             if pkg_path != new_pkg_path:
