@@ -46,14 +46,6 @@
             },
 
             {
-                "name": "Cocos2d-x",
-                "file_name_keywords": [],
-                "file_content_keywords": ["CCRender"],
-                "sub_types":{},
-                "engine_version_keyword": "cocos2d-x[\\s-](\\d+\\..*?)\\0"
-            },
-
-            {
                 "name": "unity",
                 "file_name_keywords": ["libunity\\.so", "unity3d", "unityengine", "unityscript"],
                 "file_content_keywords": ["mono_unity", "unity3d", "unityengine", "unityscript"],
@@ -119,6 +111,15 @@
                 "file_name_keywords": ["libgodot_android\\.so$"],
                 "file_content_keywords": [],
                 "sub_types": {}
+            }
+        ],
+        [
+            {
+                "name": "Cocos2d-x",
+                "file_name_keywords": [],
+                "file_content_keywords": ["CCRender"],
+                "sub_types":{},
+                "engine_version_keyword": "cocos2d-x[\\s-](\\d+\\..*?)\\0"
             }
         ],
         [
