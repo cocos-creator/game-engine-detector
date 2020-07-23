@@ -79,20 +79,6 @@
             },
 
             {
-                "name": "egret",
-                "file_name_keywords": ["egret.*\\.js$"],
-                "file_content_keywords": ["egretframeworknative", "EGTTexture"],
-                "sub_types": {}
-            },
-
-            {
-                "name": "laya",
-                "file_name_keywords": ["laya.*\\.js$"],
-                "file_content_keywords": [],
-                "sub_types": {}
-            },
-
-            {
                 "name": "defold",
                 "file_name_keywords": [".*\\.ffa$", ".*\\.ffm$", ".*\\.ffsb$"],
                 "file_content_keywords": [],
@@ -127,6 +113,20 @@
                 "name": "+Cocos",
                 "file_name_keywords": [],
                 "file_content_keywords": ["CCFileUtils", "CCLayer", "cocos2d", "CCLuaEngine", "LuaEngine", "ScriptingCore", "Scale9SpriteV2"],
+                "sub_types": {}
+            },
+
+            {
+                "name": "egret",
+                "file_name_keywords": ["egret.*\\.js$"],
+                "file_content_keywords": ["egretframeworknative", "EGTTexture"],
+                "sub_types": {}
+            },
+
+            {
+                "name": "laya",
+                "file_name_keywords": ["laya.*\\.js$"],
+                "file_content_keywords": [],
                 "sub_types": {}
             }
         ]
